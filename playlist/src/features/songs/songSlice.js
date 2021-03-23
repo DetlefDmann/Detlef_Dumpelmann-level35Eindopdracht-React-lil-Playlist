@@ -3,18 +3,20 @@ import { createSlice } from '@reduxjs/toolkit';
 export const songSlice = createSlice({
     name: 'songs',
     initialState: {
-        songArray:[
-            
-        ],
+        songArray:[],
     },
     reducers: {
         addSong: (state, newSong) => {
-            state.songArray.push(newSong.payload);
+            state.songArray= [...state.songArray,newSong.payload];
+        },
+        deleteSong: (state, del) => {
+            let newArr = state.songArray.filter(( element ) =>( element.id )!== parseInt(del.payload) );
+            state.songArray = newArr;
         }
     }
 })
 
-export const { addSong } = songSlice.actions;
+export const { addSong , deleteSong } = songSlice.actions;
 
 export const selectSongs = state => state.songs.songArray;
 
