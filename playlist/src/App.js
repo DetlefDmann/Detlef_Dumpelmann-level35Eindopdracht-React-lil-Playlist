@@ -1,21 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 import { SongOverview } from './features/songs/SongOverview';
+import About from './components/About';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>My Favorite Songs</h1>
-      </header>
-      <main>
-        <SongOverview />
-      </main>
-      <footer>
-        <p>© Copyright Detlef Dumpelmann 2021</p>
-      </footer>
+      <Router >
+        <Header />
+        <NavBar />
+          <Switch>
+          <Route path="/" >
+            <SongOverview />
+          </Route>
+          <Route path="/about" >
+            <About />
+          </Route>
+          </Switch>
+        <Footer />
+      </Router>
     </div>
   );
 }

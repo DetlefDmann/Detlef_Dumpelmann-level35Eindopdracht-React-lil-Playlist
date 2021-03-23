@@ -7,10 +7,10 @@ export const SongOverview = () => {
 
   
     
- //addSong = (song) => doe iets om de state aan te passen
+ //addSong functie zit in SongForm
     
       return (
-        <div>
+        <main>
                 <SongForm />
                 <table className="song__table" >
                     <thead>
@@ -23,8 +23,7 @@ export const SongOverview = () => {
                     </thead>
                     <SongList />
                 </table>
-                
-        </div>
+        </main>
       );
     
   }
