@@ -1,6 +1,6 @@
-##Playlist Opdracht
+## Playlist Opdracht
 
-#Inleiding:
+# Inleiding:
 
 Ik heb bij deze opdracht gekozen voor de "redux-toolkit" template voor create-react-app.
 
