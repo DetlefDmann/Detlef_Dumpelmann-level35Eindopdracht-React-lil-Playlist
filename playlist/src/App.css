@@ -2,9 +2,9 @@
   text-align: center;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 25vh 5vh 65vh 5vh;
-  grid-template-areas: "header"
-                        "nav"
+  grid-template-rows: 5vh 25vh 65vh 5vh;
+  grid-template-areas: "nav"
+                        "header"
                         "main"
                         "footer";
 }
@@ -40,6 +40,11 @@ footer {
 .song__table {
   width: 80vw;
   margin: auto;
+}
+
+.nav__link {
+  list-style: none;
+  display: inline;
 }
 
 @keyframes App-logo-float {

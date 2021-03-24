@@ -4,10 +4,7 @@ import SongList from "./SongList";
 
 export const SongOverview = () => {
   // in songList word de state van songs in de store pas opgehaald:
-
-  
-    
- //addSong functie zit in SongForm
+  // in SongForm is de functie om nieuwe items toe te voegen
     
       return (
         <main>

@@ -14,12 +14,12 @@ function App() {
         <Header />
         <NavBar />
           <Switch>
-          <Route path="/" >
-            <SongOverview />
-          </Route>
-          <Route path="/about" >
-            <About />
-          </Route>
+            <Route path="/about" >
+              <About />
+            </Route>
+            <Route path="/" >
+              <SongOverview />
+            </Route>
           </Switch>
         <Footer />
       </Router>
