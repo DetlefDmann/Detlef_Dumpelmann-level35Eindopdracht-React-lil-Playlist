@@ -8,18 +8,18 @@ export const SongOverview = () => {
     
       return (
         <main>
-                <SongForm />
-                <table className="song__table" >
-                    <thead>
-                      <tr className="song-header">  
-                        <th className="song-row__item">Song</th>
-                        <th className="song-row__item">Artist</th>
-                        <th className="song-row__item">Genre</th>
-                        <th className="song-row__item">Rating</th>
-                      </tr>
-                    </thead>
-                    <SongList />
-                </table>
+            <SongForm />
+            <table className="song__table" >
+              <thead>
+                <tr className="song-header">
+                  <th className="song-row__item">Song</th>
+                  <th className="song-row__item">Artist</th>
+                  <th className="song-row__item">Genre</th>
+                  <th className="song-row__item">Rating</th>
+                </tr>
+              </thead>
+              <SongList />
+            </table>
         </main>
       );
     
