@@ -10,7 +10,6 @@ const SongForm = () => {
          artistName:"",
          genre:"",
          rating:5,
-         id:1
      });
 
     const handleChange = (e) => {
@@ -22,10 +21,6 @@ const SongForm = () => {
 
     const handleClick  = () => {
         dispatch(addSong(songToAdd));
-        setSongToAdd((prev) => ({
-            ...prev,
-            id:prev.id +1
-        }))
     }
 
     return (
