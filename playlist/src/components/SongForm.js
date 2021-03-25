@@ -1,6 +1,6 @@
 import React, {useState } from 'react'
 import {useDispatch} from 'react-redux';
-import { addSong } from './songSlice';
+import { addSong } from '../features/songs/songSlice';
 
 
 const SongForm = () => {
