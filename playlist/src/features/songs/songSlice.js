@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { v4 as uuid } from 'uuid';
 
 export const songSlice = createSlice({
     name: 'songs',
@@ -6,11 +7,17 @@ export const songSlice = createSlice({
         songArray:[],
     },
     reducers: {
-        addSong: (state, newSong) => {
+        addSong: {
+            reducer:(state, newSong) => {
             state.songArray= [...state.songArray,newSong.payload];
         },
+        prepare: (songToAdd) => {
+            const id = uuid();
+            return { payload: {...songToAdd, id} }
+        },
+        },
         deleteSong: (state, del) => {
-            let newArr = state.songArray.filter(( element ) =>( element.id )!== parseInt(del.payload) );
+            let newArr = state.songArray.filter(( element ) =>( element.id )!== (del.payload) );
             state.songArray = newArr;
         }
     }
