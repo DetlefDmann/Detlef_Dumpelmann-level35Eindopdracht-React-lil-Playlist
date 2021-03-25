@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const filterSlice = createSlice({
     name:'filters',
     initialState: {
-        genre="all",
-        stars=0,
+        genre:"all",
+        stars:0,
     },
     reducers:{
         filterGenre: (state , genre) => {

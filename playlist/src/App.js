@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
-import { SongOverview } from './features/songs/SongOverview';
+import { SongOverview } from './components/SongOverview' ;
 import About from './components/About';
 import Header from './components/Header';
 import Footer from './components/Footer';

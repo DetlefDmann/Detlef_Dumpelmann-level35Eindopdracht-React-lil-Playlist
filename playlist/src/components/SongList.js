@@ -1,7 +1,6 @@
 import React from 'react';
-import { selectSongs } from './songSlice';
 import { useSelector , useDispatch } from 'react-redux';
-import { deleteSong } from './songSlice';
+import { deleteSong, selectSongs } from '../features/songs/songSlice';
 
 
 const SongList = () => {
