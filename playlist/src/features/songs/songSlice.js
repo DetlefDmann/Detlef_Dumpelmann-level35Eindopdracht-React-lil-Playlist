@@ -11,7 +11,7 @@ export const songSlice = createSlice({
             reducer:(state, newSong) => {
             state.songArray= [...state.songArray,newSong.payload];
         },
-        prepare: (songToAdd) => {
+        prepare: (songToAdd) => {// dit is nodig omdat je anders geen uuid kunt gebruiken
             const id = uuid();
             return { payload: {...songToAdd, id} }
         },
