@@ -31,15 +31,25 @@
 
 main {
   grid-area: main;
+  display:grid;
+  grid-template-columns: 80vw 20vw;
+  grid-template-rows: 25px 1fr;
+  grid-template-areas: "input input"
+                        "table panel";
+
+}
+.song__form {
+  grid-area: input;
 }
 
-footer {
-  grid-area: footer;
+.song__panel {
+  grid-area: panel;
+  justify-content: left;
 }
 
 .song__table {
-  width: 80vw;
-  margin: auto;
+  margin-top: 0;
+  grid-area: table;
 }
 
 .nav__link {
@@ -47,6 +57,9 @@ footer {
   display: inline;
 }
 
+footer {
+  grid-area: footer;
+}
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
