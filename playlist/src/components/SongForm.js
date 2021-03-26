@@ -41,7 +41,7 @@ const SongForm = () => {
                 <option value="ska">Ska</option>
                 <option value="punk">Punk</option>
                 <option value="grunge">Grunge</option>
-                <option value="liftmuziek">Liftmuziek</option>
+                <option value="elevator">Liftmuziek</option>
             </select>
             <select name="rating" value={songToAdd.rating} onChange={handleChange}>
                 <option value="1">1</option>
