@@ -24,7 +24,7 @@ const SongForm = () => {
     }
 
     return (
-        <div>
+        <div className="song__form">
             <input type="text" name="songTitle" value={songToAdd.songTitle} onChange={handleChange}/>
             <input type="text" name="artistName" value={songToAdd.artistName} onChange={handleChange} />
             <select name="genre" value={songToAdd.genre} onChange={handleChange}>
