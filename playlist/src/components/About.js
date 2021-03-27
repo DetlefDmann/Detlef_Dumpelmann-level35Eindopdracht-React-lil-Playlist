@@ -7,8 +7,11 @@ const About = () => {
     const songs  = useSelector(selectSongs);
     return (
         <main>
-            <h3>About this songlist:</h3> 
-            <p>There are currently {songs.length} songs on this list.</p>
+            <article className="song__table">
+                <h3>About this songlist:</h3> 
+                <p>There are currently {songs.length} songs on this list.</p>
+            </article>
+            
         </main>
     )
 }
