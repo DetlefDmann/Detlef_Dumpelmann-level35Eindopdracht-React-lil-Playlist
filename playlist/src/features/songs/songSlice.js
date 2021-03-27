@@ -18,7 +18,6 @@ export const songSlice = createSlice({
         punkSongArray:[],
         grungeSongArray:[],
         elevatorSongArray:[],
-        showArray:[]
     },
     reducers: {
         addSong: {
@@ -118,16 +117,10 @@ export const songSlice = createSlice({
             }
             
         },
-        applyGenres:(state, genres) => {
-            state.showArray = [];
-            genres.payload.forEach(genre => {
-                if(state[genre]){state.showArray.push(...state[genre])}
-            })
-        }
     }
 })
 
-export const { addSong , deleteSong , applyGenres } = songSlice.actions;
+export const { addSong , deleteSong } = songSlice.actions;
 
 export const selectSongs = state => state.songs.songArray;
 export const selectMetalSongs = state => state.songs.metalSongArray;
@@ -142,6 +135,6 @@ export const selectReggaeSongs = state => state.songs.reggaeSongArray;
 export const selectSkaSongs = state => state.songs.skaSongArray;
 export const selectPunkSongs = state => state.songs.punkSongArray;
 export const selectGrungeSongs = state => state.songs.grungeSongArray;
-export const selectShowArray = state => state.songs.showArray;
+export const selectElevatorSongs = state => state.songs.elevatorSongArray;
 
 export default songSlice.reducer;
