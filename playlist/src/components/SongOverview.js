@@ -20,8 +20,8 @@ export const SongOverview = () => {
                 </tr>
               </thead>
               <SongList />
-              <SongSelectionsPanel />
             </table>
+            <SongSelectionsPanel />
         </main>
       );
     
