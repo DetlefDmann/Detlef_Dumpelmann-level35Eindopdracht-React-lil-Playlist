@@ -18,6 +18,7 @@ export const songSlice = createSlice({
         punkSongArray:[],
         grungeSongArray:[],
         elevatorSongArray:[],
+        showArray:[]
     },
     reducers: {
         addSong: {
@@ -73,14 +74,74 @@ export const songSlice = createSlice({
         },
         },
         deleteSong: (state, del) => {
-            let newArr = state.songArray.filter(( element ) =>( element.id )!== (del.payload) );
-            state.songArray = newArr;
+            switch(del.payload.genre){
+                case("metal"):
+                    state.metalSongArray = state.metalSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("rock"):
+                    state.rockSongArray = state.rockSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("blues"):
+                    state.bluesSongArray = state.bluesSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("klassiek"):
+                    state.klassiekSongArray = state.klassiekSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("jazz"):
+                    state.jazzSongArray = state.jazzSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("pop"):
+                    state.popSongArray = state.popSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("fusion"):
+                    state.fusionSongArray = state.fusionSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("soul"):
+                    state.soulSongArray = state.soulSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;               
+                case("reggae"):
+                    state.reggaeSongArray = state.reggaeSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("ska"):
+                    state.skaSongArray = state.skaSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("punk"):
+                    state.punkSongArray = state.punkSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("grunge"):
+                    state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                case("elevator"):
+                    state.elevatorSongArray = state.elevatorSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    break;
+                default:state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+            }
+            
+        },
+        applyGenres:(state, genres) => {
+            state.showArray = [];
+            genres.payload.forEach(genre => {
+                if(state[genre]){state.showArray.push(...state[genre])}
+            })
         }
     }
 })
 
-export const { addSong , deleteSong } = songSlice.actions;
+export const { addSong , deleteSong , applyGenres } = songSlice.actions;
 
 export const selectSongs = state => state.songs.songArray;
+export const selectMetalSongs = state => state.songs.metalSongArray;
+export const selectRockSongs = state => state.songs.rockSongArray;
+export const selectBluesSongs = state => state.songs.bluesSongArray;
+export const selectKlassiekSongs = state => state.songs.klassiekSongArray;
+export const selectJazzSongs = state => state.songs.jazzSongArray;
+export const selectPopSongs = state => state.songs.popSongArray;
+export const selectFusionSongs = state => state.songs.fusionSongArray;
+export const selectSoulSongs = state => state.songs.soulSongArray;
+export const selectReggaeSongs = state => state.songs.reggaeSongArray;
+export const selectSkaSongs = state => state.songs.skaSongArray;
+export const selectPunkSongs = state => state.songs.punkSongArray;
+export const selectGrungeSongs = state => state.songs.grungeSongArray;
+export const selectShowArray = state => state.songs.showArray;
 
 export default songSlice.reducer;
