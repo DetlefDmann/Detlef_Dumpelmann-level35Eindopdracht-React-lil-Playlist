@@ -20,6 +20,7 @@ const SongList = () => {
     const punk = useSelector(selectPunkSongs);
     const grunge = useSelector(selectGrungeSongs);
     const lift = useSelector(selectElevatorSongs);
+    
 
     const[songs,setSongs] = useState([])
 
@@ -71,14 +72,28 @@ const SongList = () => {
                 if(genreFilter.elevatorSongArray){
                     cummulate = [...cummulate, ...lift];
                 } 
+                if(!starFilter.one){
+                    cummulate = cummulate.filter(song => song.rating !== 1)
+                }
+                if(!starFilter.two){
+                    cummulate = cummulate.filter(song => song.rating !== 2)
+                }
+                if(!starFilter.three){
+                    cummulate = cummulate.filter(song => song.rating !== 3)
+                }
+                if(!starFilter.four){
+                    cummulate = cummulate.filter(song => song.rating !== 4)
+                }
+                if(!starFilter.five){
+                    cummulate = cummulate.filter(song => song.rating !== 5)
+                }
+
                 setSongs(cummulate);
         
-    },[genreFilter, metal, blues, rock, klassiek, jazz, pop, fusion, soul, reggae,ska ,punk ,grunge ,lift])
+    },[genreFilter, metal, blues, rock, klassiek, jazz, pop, fusion, soul, reggae,ska ,punk ,grunge ,lift, starFilter])
 
-    console.log(metal)
     console.log(songs)
     console.log(starFilter)
-    console.log(genreFilter)
 
     const handleDelete = (e) => {
         

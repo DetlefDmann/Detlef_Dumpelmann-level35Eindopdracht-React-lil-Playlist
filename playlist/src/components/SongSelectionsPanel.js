@@ -1,14 +1,19 @@
 import React from 'react'; 
-import { filterGenre, selectGenre } from '../features/filters/filterSlice';
+import { filterGenre, filterStars, selectGenre, selectStars } from '../features/filters/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SongSelectionsPanel = () => {
-    const selectedFiltersObject = useSelector(selectGenre);// filters boolean
+    const selectedFiltersObject = useSelector(selectGenre);// filters genres boolean
+    const selectedStarsObject = useSelector(selectStars);
     const dispatch = useDispatch();
     
     const handleChange = (e) => {
         //should update the filterSlice
         dispatch(filterGenre({name:e.target.name, checked:e.target.checked}))
+    }
+    const handleStars = (e) => {
+        console.log(e.target)
+        dispatch(filterStars({name:e.target.name, checked:e.target.checked}))
     }
 
     return (
@@ -118,6 +123,17 @@ const SongSelectionsPanel = () => {
                 checked={selectedFiltersObject.elevatorSongArray}
             />
             <label htmlFor="elevator">Liftmuziek</label><br/>
+            <p>Select Stars</p>
+            <input type="checkbox" name="five" id="five" onChange={handleStars} checked={selectedStarsObject.five}/>
+            <label htmlFor="five">⭐⭐⭐⭐⭐</label><br/>
+            <input type="checkbox" name="four" id="four" onChange={handleStars} checked={selectedStarsObject.four}/>
+            <label htmlFor="four">⭐⭐⭐⭐</label><br/>
+            <input type="checkbox" name="three" id="three" onChange={handleStars} checked={selectedStarsObject.three}/>
+            <label htmlFor="three">⭐⭐⭐</label><br/>
+            <input type="checkbox" name="two" id="two" onChange={handleStars} checked={selectedStarsObject.two}/>
+            <label htmlFor="two">⭐⭐</label><br/>
+            <input type="checkbox" name="one" id="one" onChange={handleStars} checked={selectedStarsObject.one}/>
+            <label htmlFor="one">⭐</label><br/>
         </div>
     )
 }

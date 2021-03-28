@@ -19,24 +19,19 @@ export const filterSlice = createSlice({
             elevatorSongArray:true,
         },
         stars:{
-            0:true,
-            1:true,
-            2:true,
-            3:true,
-            4:true,
-            5:true,
+            one:true,
+            two:true,
+            three:true,
+            four:true,
+            five:true,
         },
     },
     reducers:{
-        filterGenre: (state , genrestate) => {
-            
-                state.genres[genrestate.payload.name]= genrestate.payload.checked
-            
+        filterGenre: (state , genreInput) => {
+                state.genres[genreInput.payload.name]= genreInput.payload.checked
         },
-        filterStars: (state , stars) => {
-            return {...state,
-                stars
-            }
+        filterStars: (state , starsInput) => {
+                state.stars[starsInput.payload.name] = starsInput.payload.checked
         }
     }
 })
