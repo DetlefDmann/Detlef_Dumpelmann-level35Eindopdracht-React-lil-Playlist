@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import { selectGenre, selectStars } from '../features/filters/filterSlice';
-import { deleteSong, selectBluesSongs, selectElevatorSongs, selectFusionSongs, selectGrungeSongs, selectJazzSongs, selectKlassiekSongs, selectMetalSongs, selectPopSongs, selectPunkSongs, selectReggaeSongs, selectRockSongs, selectSkaSongs, selectSongs, selectSoulSongs } from '../features/songs/songSlice';
+import { deleteSong, selectBluesSongs, selectElevatorSongs, selectFusionSongs, selectGrungeSongs, selectJazzSongs, selectKlassiekSongs, selectMetalSongs, selectPopSongs, selectPunkSongs, selectReggaeSongs, selectRockSongs, selectSkaSongs, selectSoulSongs } from '../features/songs/songSlice';
 
 
 const SongList = () => {
     const dispatch = useDispatch();
-    const other  = useSelector(selectSongs);
+    //const other  = useSelector(selectSongs);
     const metal = useSelector(selectMetalSongs);
     const rock = useSelector(selectRockSongs);
     const blues = useSelector(selectBluesSongs);
@@ -26,21 +26,54 @@ const SongList = () => {
     const starFilter = useSelector(selectStars);
     const genreFilter = useSelector(selectGenre);
 
-
-    const concatPlaylistComponents = () => {
-        // genreFilter loop 
-        setSongs([]);
-        if(genreFilter.metalSongArray){
-            setSongs([...songs, ...metal]);
-            console.log("metal added" + songs)
-        }
-        else console.log("metal removed");
-    }
-
+    //  Re-calculate the list when the filters or the state change   
     useEffect(() => {
-        concatPlaylistComponents()
-
-    },[genreFilter, metal])
+        setSongs([]);
+                let cummulate = [];
+              
+                if(genreFilter.metalSongArray){
+                    cummulate = [...cummulate, ...metal];
+                }
+                else console.log("no metal ?");
+                if(genreFilter.rockSongArray){
+                    cummulate = [...cummulate, ...rock];
+                }
+                if(genreFilter.bluesSongArray){
+                    cummulate = [...cummulate, ...blues];
+                }
+                if(genreFilter.klassiekSongArray){
+                    cummulate = [...cummulate, ...klassiek];
+                }
+                if(genreFilter.jazzSongArray){
+                    cummulate = [...cummulate, ...jazz];
+                }
+                if(genreFilter.popSongArray){
+                    cummulate = [...cummulate, ...pop];
+                }
+                if(genreFilter.fusionSongArray){
+                    cummulate = [...cummulate, ...fusion];
+                }
+                if(genreFilter.soulSongArray){
+                    cummulate = [...cummulate, ...soul];
+                }
+                if(genreFilter.reggaeSongArray){
+                    cummulate = [...cummulate, ...reggae];
+                }
+                if(genreFilter.skaSongArray){
+                    cummulate = [...cummulate, ...ska];
+                }
+                if(genreFilter.punkSongArray){
+                    cummulate = [...cummulate, ...punk];
+                }
+                if(genreFilter.grungeSongArray){
+                    cummulate = [...cummulate, ...grunge];
+                }
+                if(genreFilter.elevatorSongArray){
+                    cummulate = [...cummulate, ...lift];
+                } 
+                setSongs(cummulate);
+        
+    },[genreFilter, metal, blues, rock, klassiek, jazz, pop, fusion, soul, reggae,ska ,punk ,grunge ,lift])
 
     console.log(metal)
     console.log(songs)
@@ -52,7 +85,7 @@ const SongList = () => {
         const genre = e.target.genre;
         const id = e.target.id;
         dispatch(deleteSong({id:id, genre:genre}));
-        console.log(e.target.genre)
+        console.log(e.target)
     }
 
     const actualList = songs.map((element)=> {
