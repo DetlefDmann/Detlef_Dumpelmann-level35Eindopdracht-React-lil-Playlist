@@ -5,14 +5,46 @@ export const songSlice = createSlice({
     name: 'songs',
     initialState: {
         songArray:[],
-        metalSongArray:[],
-        rockSongArray:[],
-        bluesSongArray:[],
-        klassiekSongArray:[],
-        jazzSongArray:[],
-        popSongArray:[],
-        fusionSongArray:[],
-        soulSongArray:[],
+        metalSongArray:[{artistName: "Slayer",
+        genre: "metal",
+        id: "9719a93a-c607-4c9b-9919-7843535956ae",
+        rating: "10",
+        songTitle: "dittohead"}],
+        rockSongArray:[{artistName: "U2",
+        genre: "rock",
+        id: "4b191b79-63fc-4184-a9d2-221f8275e5d2",
+        rating: 9,
+        songTitle: "Vertigo"}],
+        bluesSongArray:[{artistName: "Gary Moore",
+        genre: "blues",
+        id: "693014a7-5b5f-4160-b6ab-96d004eafb4c",
+        rating: 7,
+        songTitle: "Still got the blues"}],
+        klassiekSongArray:[{artistName: "Sergej Prokofjev",
+        genre: "klassiek",
+        id: "30f5aa6b-ed47-473f-b51c-d3ffc357a064",
+        rating: 8,
+        songTitle: "Montagues and Capulets"}],
+        jazzSongArray:[{artistName: "Miles Davis",
+        genre: "jazz",
+        id: "7378c911-bb0f-419e-b54e-e853b7c774b4",
+        rating: 1,
+        songTitle: "Time after time"}],
+        popSongArray:[{artistName: "Michael Jackson",
+        genre: "pop",
+        id: "28a4f1fe-eebc-4ec5-967b-bd9e83f0dac9",
+        rating: 8,
+        songTitle: "Beat it"}],
+        fusionSongArray:[{artistName: "Snarky puppy",
+        genre: "fusion",
+        id: "2ca2c0e3-814d-4ef0-bdd6-593e00b18e0b",
+        rating: 5,
+        songTitle: "Lingus"}],
+        soulSongArray:[{artistName: "Tower of power",
+        genre: "soul",
+        id: "43fbc7bb-b772-4708-9d86-150b82f35640",
+        rating: "9",
+        songTitle: 'Soul with a capital "S"'}],
         reggaeSongArray:[],
         skaSongArray:[],
         punkSongArray:[],
@@ -73,52 +105,25 @@ export const songSlice = createSlice({
         },
         },
         deleteSong: (state, del) => {
-            switch(del.payload.genre){
-                case("metal"):
                     state.metalSongArray = state.metalSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("rock"):
                     state.rockSongArray = state.rockSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("blues"):
                     state.bluesSongArray = state.bluesSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("klassiek"):
                     state.klassiekSongArray = state.klassiekSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("jazz"):
                     state.jazzSongArray = state.jazzSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("pop"):
                     state.popSongArray = state.popSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("fusion"):
                     state.fusionSongArray = state.fusionSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("soul"):
                     state.soulSongArray = state.soulSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;               
-                case("reggae"):
                     state.reggaeSongArray = state.reggaeSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("ska"):
                     state.skaSongArray = state.skaSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("punk"):
                     state.punkSongArray = state.punkSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("grunge"):
                     state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                case("elevator"):
                     state.elevatorSongArray = state.elevatorSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    break;
-                default:state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
             }
             
         },
     }
-})
+)
 
 export const { addSong , deleteSong } = songSlice.actions;
 
