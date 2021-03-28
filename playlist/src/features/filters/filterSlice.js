@@ -3,26 +3,42 @@ import { createSlice } from '@reduxjs/toolkit';
 export const filterSlice = createSlice({
     name:'filters',
     initialState: {
-        genre:"all",
-        stars:0,
+        genres:{
+            metalSongArray:true,
+            rockSongArray:true,
+            bluesSongArray:true,
+            klassiekSongArray:true,
+            jazzSongArray:true,
+            popSongArray:true,
+            fusionSongArray:true,
+            soulSongArray:true,
+            reggaeSongArray:true,
+            skaSongArray:true,
+            punkSongArray:true,
+            grungeSongArray:true,
+            elevatorSongArray:true,
+        },
+        stars:{
+            one:true,
+            two:true,
+            three:true,
+            four:true,
+            five:true,
+        },
     },
     reducers:{
-        filterGenre: (state , genre) => {
-            return {...state,
-                genre
-            }
+        filterGenre: (state , genreInput) => {
+                state.genres[genreInput.payload.name]= genreInput.payload.checked
         },
-        filterStars: (state , stars) => {
-            return {...state,
-                stars
-            }
+        filterStars: (state , starsInput) => {
+                state.stars[starsInput.payload.name] = starsInput.payload.checked
         }
     }
 })
 
 export const { filterGenre , filterStars } = filterSlice.actions;
 
-export const selectGenre = state => state.filters.genre;
+export const selectGenre = state => state.filters.genres;
 
 export const selectStars = state => state.filters.stars;
 

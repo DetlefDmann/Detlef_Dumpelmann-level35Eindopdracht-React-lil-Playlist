@@ -1,6 +1,7 @@
 import React from 'react';
 import SongForm from "./SongForm";
 import SongList from "./SongList";
+import SongSelectionsPanel from './SongSelectionsPanel';
 
 export const SongOverview = () => {
   // in songList word de state van songs in de store pas opgehaald:
@@ -20,6 +21,7 @@ export const SongOverview = () => {
               </thead>
               <SongList />
             </table>
+            <SongSelectionsPanel />
         </main>
       );
     
