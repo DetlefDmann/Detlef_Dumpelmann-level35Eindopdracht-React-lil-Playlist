@@ -50,6 +50,7 @@ export const songSlice = createSlice({
         punkSongArray:[],
         grungeSongArray:[],
         elevatorSongArray:[],
+        showArray:[]
     },
     reducers: {
         addSong: {
@@ -98,6 +99,7 @@ export const songSlice = createSlice({
                         state.songArray= [...state.songArray,newSong.payload];
                         break;   
                 }
+            
         },
         prepare: (songToAdd) => {// dit is nodig omdat je anders geen uuid kunt gebruiken
             const id = uuid();
@@ -119,13 +121,16 @@ export const songSlice = createSlice({
                     state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.elevatorSongArray = state.elevatorSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-            }
+        },
+        setShowArray: (state, sorted) => {
+                    state.showArray = sorted.payload
+        }
             
         },
     }
 )
 
-export const { addSong , deleteSong } = songSlice.actions;
+export const { addSong , deleteSong , setShowArray } = songSlice.actions;
 
 export const selectSongs = state => state.songs.songArray;
 export const selectMetalSongs = state => state.songs.metalSongArray;
@@ -141,5 +146,6 @@ export const selectSkaSongs = state => state.songs.skaSongArray;
 export const selectPunkSongs = state => state.songs.punkSongArray;
 export const selectGrungeSongs = state => state.songs.grungeSongArray;
 export const selectElevatorSongs = state => state.songs.elevatorSongArray;
+export const selectShowArray = state => state.songs.showArray;
 
 export default songSlice.reducer;

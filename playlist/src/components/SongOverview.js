@@ -1,4 +1,5 @@
 import React from 'react';
+import { SortingFunction } from '../features/SortingFunction';
 import SongForm from "./SongForm";
 import SongList from "./SongList";
 import SongSelectionsPanel from './SongSelectionsPanel';
@@ -24,6 +25,7 @@ export const SongOverview = () => {
             </table>
             <SongSortingPanel />
             <SongSelectionsPanel />
+            <SortingFunction />
         </main>
       );
     
