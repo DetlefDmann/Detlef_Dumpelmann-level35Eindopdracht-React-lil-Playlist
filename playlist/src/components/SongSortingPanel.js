@@ -19,8 +19,8 @@ const handleOptions = (e) => {
                 <option value="songsZA">Songs z-a</option>
                 <option value="artistAZ">Artist a-z</option>
                 <option value="artistZA">Artist z-a</option>
-                <option value="starsAsc">Stars 1-5</option>
                 <option value="starsDesc">Stars 5-1</option>
+                <option value="starsAsc">Stars 1-5</option>
             </select>
         </div>
     )

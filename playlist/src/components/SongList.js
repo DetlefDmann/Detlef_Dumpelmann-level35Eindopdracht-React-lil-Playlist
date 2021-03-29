@@ -138,7 +138,7 @@ const SongList = () => {
 
                 setSongs(cummulate);
         
-    },[genreFilter,starFilter,sortBy])
+    },[genreFilter,starFilter,sortBy,metal, rock, blues, klassiek, fusion,jazz, punk,ska,soul,grunge , lift, pop, reggae])
 
     console.log(songs)
     console.log(starFilter)
