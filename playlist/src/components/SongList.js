@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
-import { selectGenre, selectStars } from '../features/filters/filterSlice';
+import { selectGenre, selectOptions, selectStars } from '../features/filters/filterSlice';
 import { deleteSong, selectBluesSongs, selectElevatorSongs, selectFusionSongs, selectGrungeSongs, selectJazzSongs, selectKlassiekSongs, selectMetalSongs, selectPopSongs, selectPunkSongs, selectReggaeSongs, selectRockSongs, selectSkaSongs, selectSoulSongs } from '../features/songs/songSlice';
 
 
@@ -22,10 +22,11 @@ const SongList = () => {
     const lift = useSelector(selectElevatorSongs);
     
 
-    const[songs,setSongs] = useState([])
+    const[songs,setSongs] = useState([]);
 
     const starFilter = useSelector(selectStars);
     const genreFilter = useSelector(selectGenre);
+    const sortBy = useSelector(selectOptions);
 
     //  Re-calculate the list when the filters or the state change   
     useEffect(() => {
@@ -35,7 +36,7 @@ const SongList = () => {
                 if(genreFilter.metalSongArray){
                     cummulate = [...cummulate, ...metal];
                 }
-                else console.log("no metal ?");
+                else console.log(sortBy);
                 if(genreFilter.rockSongArray){
                     cummulate = [...cummulate, ...rock];
                 }
@@ -87,10 +88,57 @@ const SongList = () => {
                 if(!starFilter.five){
                     cummulate = cummulate.filter(song => song.rating !== 5)
                 }
+                // sort by sortOption (string)
+                switch(sortBy){
+                    case "songsAZ":
+                        cummulate.sort((a,b)=> {
+                            if(a.songTitle>b.songTitle){return 1}
+                            if(b.songTitle>a.songTitle){return -1}
+                            return 0
+                        });
+                    break;
+                    case "songsZA":
+                        cummulate.sort((a,b)=> {
+                            if(a.songTitle<b.songTitle){return 1}
+                            if(b.songTitle<a.songTitle){return -1}
+                            return 0
+                        });
+                    break;
+                    case "artistAZ":
+                        cummulate.sort((a,b)=> {
+                            if(a.artistName>b.artistName){return 1}
+                            if(b.artistName>a.artistName){return -1}
+                            return 0
+                        });
+                    break;
+                    case "artistZA":
+                        cummulate.sort((a,b)=> {
+                            if(a.artistName<b.artistName){return 1}
+                            if(b.artistName<a.artistName){return -1}
+                            return 0
+                        });
+                    break;
+                    case "starsDesc":
+                        cummulate.sort((a,b)=> {
+                            if(a.rating<b.rating){return 1}
+                            if(b.rating<a.rating){return -1}
+                            return 0
+                        });
+                    break;
+                    case "starsAsc":
+                        cummulate.sort((a,b)=> {
+                            if(a.rating>b.rating){return 1}
+                            if(b.rating>a.rating){return -1}
+                            return 0
+                        });
+                    break;
+                    default:
+                        console.log("not sorted")
+                }
 
                 setSongs(cummulate);
         
-    },[genreFilter, metal, blues, rock, klassiek, jazz, pop, fusion, soul, reggae,ska ,punk ,grunge ,lift, starFilter])
+    },[genreFilter,starFilter,sortBy])
 
     console.log(songs)
     console.log(starFilter)
