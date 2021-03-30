@@ -14,7 +14,6 @@ const SongList = () => {
     //  Re-calculate the list when the filters or the state change   
     useEffect(() => {
         dispatch(setShowArray({genreFilter,starFilter,sortBy}));
-        
     },
     [genreFilter,starFilter,sortBy, dispatch]
     )
