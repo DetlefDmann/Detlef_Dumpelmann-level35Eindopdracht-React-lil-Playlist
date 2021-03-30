@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector , useDispatch } from 'react-redux';
 import { selectGenre, selectOptions, selectStars } from '../features/filters/filterSlice';
-import { deleteSong , selectShowArray } from '../features/songs/songSlice';
+import { deleteSong , selectShowArray,setShowArray } from '../features/songs/songSlice';
 
 
 const SongList = () => {
@@ -10,21 +10,23 @@ const SongList = () => {
      const genreFilter = useSelector(selectGenre);
      const sortBy = useSelector(selectOptions);
     const shownSongs = useSelector(selectShowArray);
-    const[songs,setSongs] = useState([]);
 
     //  Re-calculate the list when the filters or the state change   
     useEffect(() => {
-        setSongs(shownSongs);
+        dispatch(setShowArray({genreFilter,starFilter,sortBy}));
         
-    },[genreFilter,starFilter,sortBy, shownSongs])
+    },
+    [genreFilter,starFilter,sortBy, dispatch]
+    )
 
     const handleDelete = (e) => {
         const genre = e.target.genre;
         const id = e.target.id;
         dispatch(deleteSong({id:id, genre:genre}));
+        dispatch(setShowArray({genreFilter,starFilter,sortBy}));
     }
 
-    const actualList = songs.map((element)=> {
+    const actualList = shownSongs.map((element)=> {
         return (
             <tr  key={element.id}>
                 <td >{element.songTitle}</td>

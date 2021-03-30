@@ -12,7 +12,6 @@ const SongSelectionsPanel = () => {
         dispatch(filterGenre({name:e.target.name, checked:e.target.checked}))
     }
     const handleStars = (e) => {
-        console.log(e.target)
         dispatch(filterStars({name:e.target.name, checked:e.target.checked}))
     }
 
