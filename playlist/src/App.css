@@ -4,7 +4,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 3em 5em auto 3em;
+  grid-template-rows: 3em 5em minmax(70vh , auto) minmax(3em, 4em);
   grid-template-areas: "nav"
                         "header"
                         "main"
@@ -83,6 +83,10 @@ main {
   list-style: none;
   display: flex;
   justify-content: space-around;
+}
+
+article {
+  margin-bottom: auto;
 }
 
 footer {
