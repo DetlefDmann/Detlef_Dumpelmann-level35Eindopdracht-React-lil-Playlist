@@ -2,11 +2,13 @@ import React from 'react';
 import SongForm from "./SongForm";
 import SongList from "./SongList";
 import SongSelectionsPanel from './SongSelectionsPanel';
+import SongSortingPanel from './SongSortingPanel';
 
 export const SongOverview = () => {
-  // in songList word de state van songs in de store pas opgehaald:
   // in SongForm is de functie om nieuwe items toe te voegen
-    
+  // in SongList word de state van songs in de store pas opgehaald
+  // in SongSortingPanel kun je de volgorde selecteren   
+  // in SongSelectionsPanel  kun je filteren of selecteren wat je wilt zien
       return (
         <main>
             <SongForm />
@@ -21,6 +23,7 @@ export const SongOverview = () => {
               </thead>
               <SongList />
             </table>
+            <SongSortingPanel />
             <SongSelectionsPanel />
         </main>
       );
