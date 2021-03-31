@@ -50,6 +50,7 @@ export const songSlice = createSlice({
         punkSongArray:[],
         grungeSongArray:[],
         elevatorSongArray:[],
+        showArray:[]
     },
     reducers: {
         addSong: {
@@ -98,6 +99,7 @@ export const songSlice = createSlice({
                         state.songArray= [...state.songArray,newSong.payload];
                         break;   
                 }
+            
         },
         prepare: (songToAdd) => {// dit is nodig omdat je anders geen uuid kunt gebruiken
             const id = uuid();
@@ -119,13 +121,126 @@ export const songSlice = createSlice({
                     state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.elevatorSongArray = state.elevatorSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    state.showArray = state.showArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+
+        },
+        setShowArray: (state, filtersSettings) => {
+                    const genreFilter = filtersSettings.payload.genreFilter
+                    const starFilter = filtersSettings.payload.starFilter
+                    const sortBy = filtersSettings.payload.sortBy
+                    //filter
+                    state.showArray = [];   
+   
+                    if(genreFilter.metalSongArray){
+                        state.showArray = [...state.showArray, ...state.metalSongArray];
+                    }
+                    if(genreFilter.rockSongArray){
+                        state.showArray = [...state.showArray, ...state.rockSongArray];
+                    }
+                    if(genreFilter.bluesSongArray){
+                        state.showArray = [...state.showArray, ...state.bluesSongArray];
+                    }
+                    if(genreFilter.klassiekSongArray){
+                        state.showArray = [...state.showArray, ...state.klassiekSongArray];
+                    }
+                    if(genreFilter.jazzSongArray){
+                        state.showArray = [...state.showArray, ...state.jazzSongArray];
+                    }
+                    if(genreFilter.popSongArray){
+                        state.showArray = [...state.showArray, ...state.popSongArray];
+                    }
+                    if(genreFilter.fusionSongArray){
+                        state.showArray = [...state.showArray, ...state.fusionSongArray];
+                    }
+                    if(genreFilter.soulSongArray){
+                        state.showArray = [...state.showArray, ...state.soulSongArray];
+                    }
+                    if(genreFilter.reggaeSongArray){
+                        state.showArray = [...state.showArray, ...state.reggaeSongArray];
+                    }
+                    if(genreFilter.skaSongArray){
+                        state.showArray = [...state.showArray, ...state.skaSongArray];
+                    }
+                    if(genreFilter.punkSongArray){
+                        state.showArray = [...state.showArray, ...state.punkSongArray];
+                    }
+                    if(genreFilter.grungeSongArray){
+                        state.showArray = [...state.showArray, ...state.grungeSongArray];
+                    }
+                    if(genreFilter.elevatorSongArray){
+                        state.showArray = [...state.showArray, ...state.elevatorSongArray];
+                    } 
+                    if(!starFilter.one){
+                        state.showArray = state.showArray.filter(song => song.rating !== 1)
+                    }
+                    if(!starFilter.two){
+                        state.showArray = state.showArray.filter(song => song.rating !== 2)
+                    }
+                    if(!starFilter.three){
+                        state.showArray = state.showArray.filter(song => song.rating !== 3)
+                    }
+                    if(!starFilter.four){
+                        state.showArray = state.showArray.filter(song => song.rating !== 4)
+                    }
+                    if(!starFilter.five){
+                        state.showArray = state.showArray.filter(song => song.rating !== 5)
+                    }
+                    //sort won't work with sort method for arrays
+                    const temparray = [...state.showArray]
+                    switch(sortBy){
+                            case "songsAZ":
+                                temparray.sort((a,b)=> {
+                                    if(a.songTitle>b.songTitle){return 1}
+                                    if(b.songTitle>a.songTitle){return -1}
+                                    return 0
+                                });
+                            break;
+                            case "songsZA":
+                                temparray.sort((a,b)=> {
+                                    if(a.songTitle<b.songTitle){return 1}
+                                    if(b.songTitle<a.songTitle){return -1}
+                                    return 0
+                                });
+                            break;
+                            case "artistAZ":
+                                temparray.sort((a,b)=> {
+                                    if(a.artistName>b.artistName){return 1}
+                                    if(b.artistName>a.artistName){return -1}
+                                    return 0
+                                });
+                            break;
+                            case "artistZA":
+                                temparray.sort((a,b)=> {
+                                    if(a.artistName<b.artistName){return 1}
+                                    if(b.artistName<a.artistName){return -1}
+                                    return 0
+                                });
+                            break;
+                            case "starsDesc":
+                                temparray.sort((a,b)=> {
+                                    if(a.rating<b.rating){return 1}
+                                    if(b.rating<a.rating){return -1}
+                                    return 0
+                                });
+                            break;
+                            case "starsAsc":
+                                temparray.sort((a,b)=> {
+                                    if(a.rating>b.rating){return 1}
+                                    if(b.rating>a.rating){return -1}
+                                    return 0
+                                });
+                            break;
+                            default:
+                                console.log("not sorted");
+                    }
+                    state.showArray = temparray ;
             }
             
         },
     }
 )
 
-export const { addSong , deleteSong } = songSlice.actions;
+export const { addSong , deleteSong , setShowArray } = songSlice.actions;
 
 export const selectSongs = state => state.songs.songArray;
 export const selectMetalSongs = state => state.songs.metalSongArray;
@@ -141,5 +256,6 @@ export const selectSkaSongs = state => state.songs.skaSongArray;
 export const selectPunkSongs = state => state.songs.punkSongArray;
 export const selectGrungeSongs = state => state.songs.grungeSongArray;
 export const selectElevatorSongs = state => state.songs.elevatorSongArray;
+export const selectShowArray = state => state.songs.showArray;
 
 export default songSlice.reducer;
