@@ -1,14 +1,10 @@
 import React, {useState } from 'react'
-import {useDispatch , useSelector} from 'react-redux';
-import { selectGenre, selectOptions, selectStars } from '../features/filters/filterSlice';
-import { addSong , setShowArray} from '../features/songs/songSlice';
+import {useDispatch} from 'react-redux';
+import { addSong } from '../features/songs/songSlice';
 
 
 const SongForm = () => {
      const dispatch = useDispatch();
-     const starFilter = useSelector(selectStars);
-     const genreFilter = useSelector(selectGenre);
-     const sortBy = useSelector(selectOptions);
      const [songToAdd, setSongToAdd] = useState({
          songTitle:"",
          artistName:"",
@@ -25,7 +21,6 @@ const SongForm = () => {
 
     const handleClick  = () => {
         dispatch(addSong(songToAdd));
-        dispatch(setShowArray({genreFilter,starFilter,sortBy}));
     }
 
     return (

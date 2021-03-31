@@ -3,7 +3,7 @@ import { filterGenre, filterStars, selectGenre, selectStars } from '../features/
 import { useDispatch, useSelector } from 'react-redux';
 
 const SongSelectionsPanel = () => {
-    const selectedFiltersObject = useSelector(selectGenre);
+    const selectedFiltersObject = useSelector(selectGenre);// filters genres boolean
     const selectedStarsObject = useSelector(selectStars);
     const dispatch = useDispatch();
     
@@ -12,6 +12,7 @@ const SongSelectionsPanel = () => {
         dispatch(filterGenre({name:e.target.name, checked:e.target.checked}))
     }
     const handleStars = (e) => {
+        console.log(e.target)
         dispatch(filterStars({name:e.target.name, checked:e.target.checked}))
     }
 
