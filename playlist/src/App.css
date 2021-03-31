@@ -1,8 +1,10 @@
 .App {
+  font-family: 'Ubuntu', sans-serif;
+  width: 100%;
   text-align: center;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 5vh 25vh 65vh 5vh;
+  grid-template-rows: 3em 5em auto 3em;
   grid-template-areas: "nav"
                         "header"
                         "main"
@@ -20,26 +22,34 @@
   }
 }
 
-.App-header {
-  display: flex;
-  flex-direction: column;
+.App__header {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  font-size: 1em;
   grid-area: header;
+}
+
+.App__header h1 {
+  margin-top:0;
+  margin-bottom: 10px;
 }
 
 main {
   grid-area: main;
   display:grid;
-  grid-template-columns: 15vw 70vw 15vw;
-  grid-template-rows: 25px 1fr;
-  grid-template-areas: "input input input"
-                        "sort table panel";
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 8em 1fr auto;
+  grid-template-areas: "sort input"
+                        "table table"
+                        "panel panel";
 
 }
 .song__form {
   grid-area: input;
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
 }
 
 .song__sort {
@@ -48,34 +58,61 @@ main {
 
 .song__panel {
   grid-area: panel;
+  display: flex;
   justify-content: left;
   text-align: left;
 }
 
+.song__panel div {
+  margin-left: 10vw;
+}
+
 .song__table {
-  margin: auto;
+  margin: 0;
   margin-top: 0;
   max-width: 700px;
-  min-width: 600px;
+  font-size: small;
   grid-area: table;
+}
+
+.nav__bar {
+  background-color: rgb(228, 203, 252);
 }
 
 .nav__link {
   list-style: none;
-  display: inline;
+  display: flex;
+  justify-content: space-around;
 }
 
 footer {
   grid-area: footer;
+  background-color:rgb(228, 203, 252);
 }
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(5px)
   }
   100% {
     transform: translateY(0px)
   }
+}
+
+@media (min-width: 1024px) {
+  main {
+    grid-area: main;
+    display:grid;
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-rows: 25px 1fr;
+    grid-template-areas: "input input input"
+                          "sort table panel";
+  }
+
+
+
+
+
 }

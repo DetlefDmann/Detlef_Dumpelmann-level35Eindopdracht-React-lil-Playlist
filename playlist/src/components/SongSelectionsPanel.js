@@ -17,6 +17,7 @@ const SongSelectionsPanel = () => {
 
     return (
         <div className="song__panel">
+            <div className="genres__panel">
             <p>Select genres</p>
             <input 
                 type="checkbox" 
@@ -122,17 +123,20 @@ const SongSelectionsPanel = () => {
                 checked={selectedFiltersObject.elevatorSongArray}
             />
             <label htmlFor="elevator">Liftmuziek</label><br/>
-            <p>Select Stars</p>
-            <input type="checkbox" name="five" id="five" onChange={handleStars} checked={selectedStarsObject.five}/>
-            <label htmlFor="five">⭐⭐⭐⭐⭐</label><br/>
-            <input type="checkbox" name="four" id="four" onChange={handleStars} checked={selectedStarsObject.four}/>
-            <label htmlFor="four">⭐⭐⭐⭐</label><br/>
-            <input type="checkbox" name="three" id="three" onChange={handleStars} checked={selectedStarsObject.three}/>
-            <label htmlFor="three">⭐⭐⭐</label><br/>
-            <input type="checkbox" name="two" id="two" onChange={handleStars} checked={selectedStarsObject.two}/>
-            <label htmlFor="two">⭐⭐</label><br/>
-            <input type="checkbox" name="one" id="one" onChange={handleStars} checked={selectedStarsObject.one}/>
-            <label htmlFor="one">⭐</label><br/>
+            </div>
+            <div className="stars__panel">
+                <p>Select Stars</p>
+                <input type="checkbox" name="five" id="five" onChange={handleStars} checked={selectedStarsObject.five}/>
+                <label htmlFor="five">⭐⭐⭐⭐⭐</label><br/>
+                <input type="checkbox" name="four" id="four" onChange={handleStars} checked={selectedStarsObject.four}/>
+                <label htmlFor="four">⭐⭐⭐⭐</label><br/>
+                <input type="checkbox" name="three" id="three" onChange={handleStars} checked={selectedStarsObject.three}/>
+                <label htmlFor="three">⭐⭐⭐</label><br/>
+                <input type="checkbox" name="two" id="two" onChange={handleStars} checked={selectedStarsObject.two}/>
+                <label htmlFor="two">⭐⭐</label><br/>
+                <input type="checkbox" name="one" id="one" onChange={handleStars} checked={selectedStarsObject.one}/>
+                <label htmlFor="one">⭐</label><br/>
+            </div>
         </div>
     )
 }
