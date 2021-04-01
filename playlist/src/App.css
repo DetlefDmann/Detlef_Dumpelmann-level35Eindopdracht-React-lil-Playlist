@@ -11,13 +11,17 @@
                         "footer";
 }
 
-.App-logo {
+.App__logo {
   height: 10vmin;
   pointer-events: none;
 }
 
+nav {
+  grid-area: nav;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .App__logo {
     animation: App-logo-float infinite 3s ease-in-out;
   }
 }
@@ -50,6 +54,14 @@ main {
   display: flex;
   flex-direction: column;
   max-width: 70vw;
+}
+
+.song__form > input,
+.song__form > select,
+.song__form > button {
+  max-width: 400px;
+  min-width: 50vw;
+  margin: 0 auto 0 auto;
 }
 
 .song__sort {
@@ -121,16 +133,21 @@ footer {
                           "footer";
   }
   
-main {
-  grid-area: main;
-  display:grid;
-  grid-template-columns: 30vw 70vw;
-  grid-template-rows: 9em 1fr minmax(1fr,auto);
-  grid-template-areas: "sort input"
-                        "table table"
-                        "panel panel";
+  main {
+    grid-area: main;
+    display:grid;
+    grid-template-columns: 30vw 70vw;
+    grid-template-rows: 9em 1fr minmax(1fr,auto);
+    grid-template-areas: "sort input"
+                          "table table"
+                          "panel panel";
 
-}
+  }
+
+  .song__table {
+    font-size: medium;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -138,27 +155,79 @@ main {
     display: grid;
     grid-template-columns: 100vw;
     grid-template-rows: 3em 5em minmax(80vh , auto) minmax(3em, auto);
-    grid-template-areas: "nav"
-                          "header"
-                          "main"
-                          "footer";
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-areas: "nav nav nav"
+                          ". header ."
+                          "main main main"
+                          "footer footer footer";
   }
   
   main {
     grid-area: main;
     display:grid;
+    justify-content: center;
     grid-template-columns: 15vw 70vw 15vw;
     grid-template-rows: 25px 1fr;
-    grid-template-areas: "input input input"
+    grid-template-areas: ". input ."
                           "sort table panel";
   }
 
-  song__form {
-    grid-area: input;
-    display: inline ;
-    max-width: 70vw;
+  .App__header {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    grid-area: header;
   }
 
+  .song__form {
+    grid-area: input;
+    display: inline;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .song__form > input,
+  .song__form > select{
+    max-width: none;
+    min-width: 110px;
+    margin: 0 auto 0 auto;
+  }
+
+  .song__form > button {
+    max-width: 100px;
+    min-width: 50px;
+  }
+  
+  .song__table {
+    margin: 0 auto;
+  }
+
+  .song__column {
+    width: 185px;
+  }
+
+  .artist__column {
+    width: 185px;
+  }
+
+  .genre__column {
+    width: 110px;
+  }
+
+  .rating__column {
+    width: 110px;
+  }
+
+  .song__panel {
+    grid-area: panel;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+  .song__panel div {
+    margin-left: 10px;
+  }
 
 
 }
