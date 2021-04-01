@@ -13,12 +13,19 @@ export const SongOverview = () => {
         <main>
             <SongForm />
             <table className="song__table" >
+              <colgroup>
+                <col className="song__column"/>
+                <col className="artist__column"/>
+                <col className="genre__column"/>
+                <col className="rating__column"/>
+                <col className="button__column"/>
+              </colgroup>
               <thead>
-                <tr className="song-header">
-                  <th className="song-row__item">Song</th>
-                  <th className="song-row__item">Artist</th>
-                  <th className="song-row__item">Genre</th>
-                  <th className="song-row__item">Rating</th>
+                <tr className="song__header">
+                  <th className="songRow__item">Song</th>
+                  <th className="songRow__item">Artist</th>
+                  <th className="songRow__item">Genre</th>
+                  <th className="songRow__item">Rating</th>
                 </tr>
               </thead>
               <SongList />
