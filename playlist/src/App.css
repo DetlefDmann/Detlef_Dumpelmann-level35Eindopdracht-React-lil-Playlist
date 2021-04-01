@@ -1,45 +1,67 @@
 .App {
+  font-family: 'Ubuntu', sans-serif;
+  width: 100%;
   text-align: center;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 5vh 25vh 65vh 5vh;
+  grid-template-rows: 3em 5em minmax(70vh , auto) minmax(3em, 1fr);
   grid-template-areas: "nav"
                         "header"
                         "main"
                         "footer";
 }
 
-.App-logo {
+.App__logo {
   height: 10vmin;
   pointer-events: none;
 }
 
+nav {
+  grid-area: nav;
+}
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
+  .App__logo {
     animation: App-logo-float infinite 3s ease-in-out;
   }
 }
 
-.App-header {
-  display: flex;
-  flex-direction: column;
+.App__header {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  font-size: 1em;
   grid-area: header;
+}
+
+.App__header h1 {
+  margin-top:0;
+  margin-bottom: 10px;
 }
 
 main {
   grid-area: main;
   display:grid;
-  grid-template-columns: 15vw 70vw 15vw;
-  grid-template-rows: 25px 1fr;
-  grid-template-areas: "input input input"
-                        "sort table panel";
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 8em 1fr minmax(1fr,auto);
+  grid-template-areas: "sort input"
+                        "table table"
+                        "panel panel";
 
 }
 .song__form {
   grid-area: input;
+  display: flex;
+  flex-direction: column;
+  max-width: 70vw;
+}
+
+.song__form > input,
+.song__form > select,
+.song__form > button {
+  max-width: 400px;
+  min-width: 50vw;
+  margin: 0 auto 0 auto;
 }
 
 .song__sort {
@@ -48,34 +70,164 @@ main {
 
 .song__panel {
   grid-area: panel;
+  display: flex;
   justify-content: left;
   text-align: left;
+  margin-bottom: auto;
+}
+
+.song__panel div {
+  margin-left: 10vw;
 }
 
 .song__table {
-  margin: auto;
+  margin: 0;
   margin-top: 0;
   max-width: 700px;
-  min-width: 600px;
+  font-size: small;
   grid-area: table;
+}
+
+.nav__bar {
+  background-color: rgb(228, 203, 252);
 }
 
 .nav__link {
   list-style: none;
-  display: inline;
+  display: flex;
+  justify-content: space-around;
+}
+
+article {
+  margin-bottom: auto;
 }
 
 footer {
   grid-area: footer;
+  background-color:rgb(228, 203, 252);
+  margin-top: auto;
 }
 @keyframes App-logo-float {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(5px)
   }
   100% {
     transform: translateY(0px)
   }
+}
+
+@media (min-width: 768px) {
+  .App {
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 3em 5em minmax(80vh , auto) minmax(3em, auto);
+    grid-template-areas: "nav"
+                          "header"
+                          "main"
+                          "footer";
+  }
+  
+  main {
+    grid-area: main;
+    display:grid;
+    grid-template-columns: 30vw 70vw;
+    grid-template-rows: 9em 1fr minmax(1fr,auto);
+    grid-template-areas: "sort input"
+                          "table table"
+                          "panel panel";
+
+  }
+
+  .song__table {
+    font-size: medium;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1025px) {
+  .App {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 3em 5em minmax(80vh , auto) minmax(3em, auto);
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-areas: "nav nav nav"
+                          ". header ."
+                          "main main main"
+                          "footer footer footer";
+  }
+  
+  main {
+    grid-area: main;
+    display:grid;
+    justify-content: center;
+    grid-template-columns: 15vw 70vw 15vw;
+    grid-template-rows: 25px 1fr;
+    grid-template-areas: ". input ."
+                          "sort table panel";
+  }
+
+  .App__header {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    grid-area: header;
+  }
+
+  .song__form {
+    grid-area: input;
+    display: inline;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .song__form > input,
+  .song__form > select{
+    max-width: none;
+    min-width: 110px;
+    margin: 0 auto 0 auto;
+  }
+
+  .song__form > button {
+    max-width: 100px;
+    min-width: 50px;
+  }
+  
+  .song__table {
+    margin: 0 auto;
+  }
+
+  .song__column {
+    width: 185px;
+  }
+
+  .artist__column {
+    width: 185px;
+  }
+
+  .genre__column {
+    width: 110px;
+  }
+
+  .rating__column {
+    width: 110px;
+  }
+
+  .song__panel {
+    grid-area: panel;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+  .song__panel div {
+    margin-left: 10px;
+  }
+
+
 }
