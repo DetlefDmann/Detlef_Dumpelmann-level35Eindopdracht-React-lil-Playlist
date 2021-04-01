@@ -4,7 +4,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: 100vw;
-  grid-template-rows: 3em 5em minmax(70vh , auto) minmax(3em, 4em);
+  grid-template-rows: 3em 5em minmax(70vh , auto) minmax(3em, 1fr);
   grid-template-areas: "nav"
                         "header"
                         "main"
@@ -39,7 +39,7 @@ main {
   grid-area: main;
   display:grid;
   grid-template-columns: 30vw 70vw;
-  grid-template-rows: 8em 1fr auto;
+  grid-template-rows: 8em 1fr minmax(1fr,auto);
   grid-template-areas: "sort input"
                         "table table"
                         "panel panel";
@@ -49,7 +49,7 @@ main {
   grid-area: input;
   display: flex;
   flex-direction: column;
-  width: 70vw;
+  max-width: 70vw;
 }
 
 .song__sort {
@@ -61,6 +61,7 @@ main {
   display: flex;
   justify-content: left;
   text-align: left;
+  margin-bottom: auto;
 }
 
 .song__panel div {
@@ -92,6 +93,7 @@ article {
 footer {
   grid-area: footer;
   background-color:rgb(228, 203, 252);
+  margin-top: auto;
 }
 @keyframes App-logo-float {
   0% {
@@ -105,7 +107,43 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .App {
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 3em 5em minmax(80vh , auto) minmax(3em, auto);
+    grid-template-areas: "nav"
+                          "header"
+                          "main"
+                          "footer";
+  }
+  
+main {
+  grid-area: main;
+  display:grid;
+  grid-template-columns: 30vw 70vw;
+  grid-template-rows: 9em 1fr minmax(1fr,auto);
+  grid-template-areas: "sort input"
+                        "table table"
+                        "panel panel";
+
+}
+}
+
+@media (min-width: 1025px) {
+  .App {
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 3em 5em minmax(80vh , auto) minmax(3em, auto);
+    grid-template-areas: "nav"
+                          "header"
+                          "main"
+                          "footer";
+  }
+  
   main {
     grid-area: main;
     display:grid;
@@ -115,7 +153,11 @@ footer {
                           "sort table panel";
   }
 
-
+  song__form {
+    grid-area: input;
+    display: inline ;
+    max-width: 70vw;
+  }
 
 
 
