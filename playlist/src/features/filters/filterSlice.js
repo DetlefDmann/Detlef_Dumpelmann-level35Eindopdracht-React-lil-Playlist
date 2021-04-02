@@ -7,7 +7,7 @@ export const filterSlice = createSlice({
             metalSongArray:true,
             rockSongArray:true,
             bluesSongArray:true,
-            klassiekSongArray:true,
+            classicalSongArray:true,
             jazzSongArray:true,
             popSongArray:true,
             fusionSongArray:true,

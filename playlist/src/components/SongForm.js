@@ -30,14 +30,14 @@ const SongForm = () => {
 
     return (
         <div className="song__form">
-            <input type="text" name="songTitle" value={songToAdd.songTitle} onChange={handleChange}/>
-            <input type="text" name="artistName" value={songToAdd.artistName} onChange={handleChange} />
+            <input type="text" name="songTitle" placeholder="Title" value={songToAdd.songTitle} onChange={handleChange}/>
+            <input type="text" name="artistName" placeholder="Artist" value={songToAdd.artistName} onChange={handleChange} />
             <select name="genre" value={songToAdd.genre} onChange={handleChange}>
                 <option value=""></option>
                 <option value="metal">Metal</option>
                 <option value="rock">Rock</option>
                 <option value="blues">Blues</option>
-                <option value="klassiek">Klassiek</option>
+                <option value="classical">Classical</option>
                 <option value="jazz">Jazz</option>
                 <option value="pop">Pop</option>
                 <option value="fusion">Fusion</option>
@@ -46,7 +46,7 @@ const SongForm = () => {
                 <option value="ska">Ska</option>
                 <option value="punk">Punk</option>
                 <option value="grunge">Grunge</option>
-                <option value="elevator">Liftmuziek</option>
+                <option value="elevator">Elevator music</option>
             </select>
             <select name="rating" value={songToAdd.rating} onChange={handleChange}>
                 <option value="1">⭐</option>
