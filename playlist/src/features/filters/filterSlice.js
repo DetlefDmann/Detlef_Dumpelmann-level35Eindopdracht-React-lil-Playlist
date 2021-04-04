@@ -17,6 +17,7 @@ export const filterSlice = createSlice({
             punkSongArray:true,
             grungeSongArray:true,
             elevatorSongArray:true,
+            songArray:true
         },
         stars:{
             one:true,

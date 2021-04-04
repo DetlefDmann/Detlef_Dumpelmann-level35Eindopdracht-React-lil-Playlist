@@ -174,6 +174,9 @@ export const songSlice = createSlice({
                     if(genreFilter.elevatorSongArray){
                         state.showArray = [...state.showArray, ...state.elevatorSongArray];
                     } 
+                    if(genreFilter.songArray){
+                        state.showArray = [...state.showArray, ...state.songArray];
+                    } 
                     if(!starFilter.one){
                         state.showArray = state.showArray.filter(song => song.rating !== 1)
                     }
@@ -239,7 +242,6 @@ export const songSlice = createSlice({
                     }
                     state.showArray = tempArray ;
             }
-            
         },
     }
 )
