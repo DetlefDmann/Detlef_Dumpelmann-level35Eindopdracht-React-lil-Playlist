@@ -123,6 +123,14 @@ const SongSelectionsPanel = () => {
                 checked={selectedFiltersObject.elevatorSongArray}
             />
             <label htmlFor="elevator">Elevator music</label><br/>
+            <input 
+                type="checkbox" 
+                name="songArray" 
+                id="other"
+                onChange={handleChange}
+                checked={selectedFiltersObject.songArray}
+            />
+            <label htmlFor="other">Other</label><br/>
             </div>
             <div className="stars__panel">
                 <p>Select Stars</p>

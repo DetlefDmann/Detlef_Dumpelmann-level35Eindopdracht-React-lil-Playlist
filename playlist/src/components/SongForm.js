@@ -12,7 +12,7 @@ const SongForm = () => {
      const [songToAdd, setSongToAdd] = useState({
          songTitle:"",
          artistName:"",
-         genre:"",
+         genre:"other",
          rating:5,
      });
 
@@ -20,7 +20,7 @@ const SongForm = () => {
            setSongToAdd((prev) => ({
             ...prev,
             [e.target.name]:(e.target.value),
-            }) )
+            }))
     }
 
     const handleClick  = () => {
@@ -33,7 +33,7 @@ const SongForm = () => {
             <input type="text" name="songTitle" placeholder="Title" value={songToAdd.songTitle} onChange={handleChange}/>
             <input type="text" name="artistName" placeholder="Artist" value={songToAdd.artistName} onChange={handleChange} />
             <select name="genre" value={songToAdd.genre} onChange={handleChange}>
-                <option value=""></option>
+                <option value="other">Other</option>
                 <option value="metal">Metal</option>
                 <option value="rock">Rock</option>
                 <option value="blues">Blues</option>
