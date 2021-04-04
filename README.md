@@ -30,4 +30,4 @@ De officiele website voor Redux Toolkit is https://redux-toolkit.js.org/.
 Om  enigzins inzicht te krijgen in de gebruikte syntax is de volgende "course" heel verhelderend geweest. https://egghead.io/courses/redux-with-react-hooks-8a37
 
 Deze video op Youtube was ook heel goed https://youtu.be/9lCmbth63k0 .
-Ik heb zelf echter geeen TypeScript gebruikt.
+Ik heb zelf echter geen TypeScript gebruikt.
