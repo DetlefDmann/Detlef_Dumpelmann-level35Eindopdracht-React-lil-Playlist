@@ -1,6 +1,7 @@
 .App {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
+  min-height: 100vh;
   text-align: center;
   display: grid;
   grid-template-columns: 100vw;
@@ -43,7 +44,7 @@ main {
   grid-area: main;
   display:grid;
   grid-template-columns: 30vw 70vw;
-  grid-template-rows: 8em 1fr minmax(1fr,auto);
+  grid-template-rows: 7em 1fr auto;
   grid-template-areas: "sort input"
                         "table table"
                         "panel panel";
@@ -66,6 +67,7 @@ main {
 
 .song__sort {
   grid-area: sort;
+  background-color:rgba(246, 237, 253, 0.3);
 }
 
 .song__panel {
@@ -74,6 +76,7 @@ main {
   justify-content: left;
   text-align: left;
   margin-bottom: auto;
+  background-color:rgba(246, 237, 253, 0.3);
 }
 
 .song__panel div {
@@ -86,6 +89,10 @@ main {
   max-width: 700px;
   font-size: small;
   grid-area: table;
+}
+
+.song__header {
+  background-color: rgb(228, 203, 252);
 }
 
 .nav__bar {
@@ -153,7 +160,6 @@ footer {
 @media (min-width: 1025px) {
   .App {
     display: grid;
-    grid-template-columns: 100vw;
     grid-template-rows: 3em 5em minmax(80vh , auto) minmax(3em, auto);
     grid-template-columns: 15vw 70vw 15vw;
     grid-template-areas: "nav nav nav"
@@ -224,6 +230,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: left;
+    margin: 0;
   }
   .song__panel div {
     margin-left: 10px;

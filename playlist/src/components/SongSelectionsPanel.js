@@ -45,12 +45,12 @@ const SongSelectionsPanel = () => {
             <label htmlFor="blues">Blues</label><br/>
             <input 
                 type="checkbox" 
-                name="klassiekSongArray" 
-                id="klassiek"
+                name="classicalSongArray" 
+                id="classical"
                 onChange={handleChange}
-                checked={selectedFiltersObject.klassiekSongArray}
+                checked={selectedFiltersObject.classicalSongArray}
             />
-            <label htmlFor="klassiek">Klassiek</label><br/>
+            <label htmlFor="classical">Classical</label><br/>
             <input 
                 type="checkbox" 
                 name="jazzSongArray" 
@@ -122,7 +122,7 @@ const SongSelectionsPanel = () => {
                 onChange={handleChange}
                 checked={selectedFiltersObject.elevatorSongArray}
             />
-            <label htmlFor="elevator">Liftmuziek</label><br/>
+            <label htmlFor="elevator">Elevator music</label><br/>
             </div>
             <div className="stars__panel">
                 <p>Select Stars</p>

@@ -9,7 +9,7 @@ export const songSlice = createSlice({
         genre: "metal",
         id: "9719a93a-c607-4c9b-9919-7843535956ae",
         rating: 5,
-        songTitle: "dittohead"}],
+        songTitle: "Dittohead"}],
         rockSongArray:[{artistName: "U2",
         genre: "rock",
         id: "4b191b79-63fc-4184-a9d2-221f8275e5d2",
@@ -20,8 +20,8 @@ export const songSlice = createSlice({
         id: "693014a7-5b5f-4160-b6ab-96d004eafb4c",
         rating: 4,
         songTitle: "Still got the blues"}],
-        klassiekSongArray:[{artistName: "Sergej Prokofjev",
-        genre: "klassiek",
+        classicalSongArray:[{artistName: "Sergej Prokofjev",
+        genre: "classical",
         id: "30f5aa6b-ed47-473f-b51c-d3ffc357a064",
         rating: 5,
         songTitle: "Montagues and Capulets"}],
@@ -48,7 +48,11 @@ export const songSlice = createSlice({
         reggaeSongArray:[],
         skaSongArray:[],
         punkSongArray:[],
-        grungeSongArray:[],
+        grungeSongArray:[{artistName: "Nirvana",
+        genre: "grunge",
+        id:'3c96def4-6316-4628-93cf-8e848a7d12c0',
+        rating: 5,
+        songTitle: "Breed"}],
         elevatorSongArray:[],
         showArray:[]
     },
@@ -65,8 +69,8 @@ export const songSlice = createSlice({
                     case("blues"):
                         state.bluesSongArray= [...state.bluesSongArray,newSong.payload];
                         break;
-                    case("klassiek"):
-                        state.klassiekSongArray= [...state.klassiekSongArray,newSong.payload];
+                    case("classical"):
+                        state.classicalSongArray= [...state.classicalSongArray,newSong.payload];
                         break;
                     case("jazz"):
                         state.jazzSongArray= [...state.jazzSongArray,newSong.payload];
@@ -110,7 +114,7 @@ export const songSlice = createSlice({
                     state.metalSongArray = state.metalSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.rockSongArray = state.rockSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.bluesSongArray = state.bluesSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    state.klassiekSongArray = state.klassiekSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    state.classicalSongArray = state.classicalSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.jazzSongArray = state.jazzSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.popSongArray = state.popSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.fusionSongArray = state.fusionSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
@@ -118,7 +122,7 @@ export const songSlice = createSlice({
                     state.reggaeSongArray = state.reggaeSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.skaSongArray = state.skaSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.punkSongArray = state.punkSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
-                    state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
+                    state.grungeSongArray = state.grungeSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.elevatorSongArray = state.elevatorSongArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.songArray = state.songArray.filter(( element ) =>( element.id )!== (del.payload.id) );
                     state.showArray = state.showArray.filter(( element ) =>( element.id )!== (del.payload.id) );
@@ -140,8 +144,8 @@ export const songSlice = createSlice({
                     if(genreFilter.bluesSongArray){
                         state.showArray = [...state.showArray, ...state.bluesSongArray];
                     }
-                    if(genreFilter.klassiekSongArray){
-                        state.showArray = [...state.showArray, ...state.klassiekSongArray];
+                    if(genreFilter.classicalSongArray){
+                        state.showArray = [...state.showArray, ...state.classicalSongArray];
                     }
                     if(genreFilter.jazzSongArray){
                         state.showArray = [...state.showArray, ...state.jazzSongArray];
@@ -186,45 +190,45 @@ export const songSlice = createSlice({
                         state.showArray = state.showArray.filter(song => song.rating !== 5)
                     }
                     //sort won't work with sort method for arrays
-                    const temparray = [...state.showArray]
+                    const tempArray = [...state.showArray]
                     switch(sortBy){
                             case "songsAZ":
-                                temparray.sort((a,b)=> {
+                                tempArray.sort((a,b)=> {
                                     if(a.songTitle>b.songTitle){return 1}
                                     if(b.songTitle>a.songTitle){return -1}
                                     return 0
                                 });
                             break;
                             case "songsZA":
-                                temparray.sort((a,b)=> {
+                                tempArray.sort((a,b)=> {
                                     if(a.songTitle<b.songTitle){return 1}
                                     if(b.songTitle<a.songTitle){return -1}
                                     return 0
                                 });
                             break;
                             case "artistAZ":
-                                temparray.sort((a,b)=> {
+                                tempArray.sort((a,b)=> {
                                     if(a.artistName>b.artistName){return 1}
                                     if(b.artistName>a.artistName){return -1}
                                     return 0
                                 });
                             break;
                             case "artistZA":
-                                temparray.sort((a,b)=> {
+                                tempArray.sort((a,b)=> {
                                     if(a.artistName<b.artistName){return 1}
                                     if(b.artistName<a.artistName){return -1}
                                     return 0
                                 });
                             break;
                             case "starsDesc":
-                                temparray.sort((a,b)=> {
+                                tempArray.sort((a,b)=> {
                                     if(a.rating<b.rating){return 1}
                                     if(b.rating<a.rating){return -1}
                                     return 0
                                 });
                             break;
                             case "starsAsc":
-                                temparray.sort((a,b)=> {
+                                tempArray.sort((a,b)=> {
                                     if(a.rating>b.rating){return 1}
                                     if(b.rating>a.rating){return -1}
                                     return 0
@@ -233,7 +237,7 @@ export const songSlice = createSlice({
                             default:
                                 console.log("not sorted");
                     }
-                    state.showArray = temparray ;
+                    state.showArray = tempArray ;
             }
             
         },
@@ -246,7 +250,7 @@ export const selectSongs = state => state.songs.songArray;
 export const selectMetalSongs = state => state.songs.metalSongArray;
 export const selectRockSongs = state => state.songs.rockSongArray;
 export const selectBluesSongs = state => state.songs.bluesSongArray;
-export const selectKlassiekSongs = state => state.songs.klassiekSongArray;
+export const selectclassicalSongs = state => state.songs.classicalSongArray;
 export const selectJazzSongs = state => state.songs.jazzSongArray;
 export const selectPopSongs = state => state.songs.popSongArray;
 export const selectFusionSongs = state => state.songs.fusionSongArray;
