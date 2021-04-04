@@ -67,7 +67,11 @@ main {
 
 .song__sort {
   grid-area: sort;
-  background-color:rgba(246, 237, 253, 0.3);
+  background-color:rgba(246, 237, 253, 0.4);
+}
+
+tbody {
+  background-color: rgba(246, 237, 253, 0.6);
 }
 
 .song__panel {
@@ -76,7 +80,7 @@ main {
   justify-content: left;
   text-align: left;
   margin-bottom: auto;
-  background-color:rgba(246, 237, 253, 0.3);
+  background-color:rgba(246, 237, 253, 0.4);
 }
 
 .song__panel div {
