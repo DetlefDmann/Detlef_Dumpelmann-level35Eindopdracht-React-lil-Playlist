@@ -1,4 +1,3 @@
-![Screenshot from 2021-06-12 18-05-14](https://user-images.githubusercontent.com/30078692/121782959-7e608400-cbac-11eb-9ace-7704ea9f8c47.png)
 # Playlist Opdracht
 
 ## Inleiding:
@@ -32,3 +31,4 @@ Om  enigzins inzicht te krijgen in de gebruikte syntax is de volgende "course" h
 
 Deze video op Youtube was ook heel goed https://youtu.be/9lCmbth63k0 .
 Ik heb zelf echter geen TypeScript gebruikt.
+![Screenshot from 2021-06-12 18-05-14](https://user-images.githubusercontent.com/30078692/121782959-7e608400-cbac-11eb-9ace-7704ea9f8c47.png)
