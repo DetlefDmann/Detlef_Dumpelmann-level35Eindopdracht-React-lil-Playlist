@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "author": "Detlef Dumpelmann",
+  "short_name": "Song List",
+  "name": "React Song List App",
   "icons": [
     {
       "src": "favicon.ico",
