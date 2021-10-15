@@ -16,6 +16,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(VERSION_NR_STATIC).then((cache) => {
       console.log("caching app shell");
+      console.log(cache);
       return cache.addAll(STATIC_FILES);
     })
   );
