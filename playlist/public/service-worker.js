@@ -5,9 +5,9 @@ const VERSION_NR_DYNAMIC = "dynamic-v1";
 const STATIC_FILES = [
   "./",
   "./about",
-  //"./home",
+  "./home",
   "./index.html",
-  // "../src/App.js",
+  "../src/App.js",
 ];
 
 //add minimal necessary files to cache
