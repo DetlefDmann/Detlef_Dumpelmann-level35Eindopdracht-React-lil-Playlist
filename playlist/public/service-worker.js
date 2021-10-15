@@ -5,19 +5,22 @@ const VERSION_NR_DYNAMIC = "dynamic-v1";
 const STATIC_FILES = [
   "./",
   "./about",
-  "./home",
   "./index.html",
-  "./src/App.js",
+  //"/static/App.js",
+  //"/static/index.js",
 ];
 
 //add minimal necessary files to cache
 self.addEventListener("install", (event) => {
   console.log("[Serviceworker] installing Service Worker ...", event);
   event.waitUntil(
-    caches.open(VERSION_NR_STATIC).then((cache) => {
-      console.log("caching app shell");
-      return cache.addAll(STATIC_FILES);
-    })
+    caches
+      .open(VERSION_NR_STATIC)
+      .then((cache) => {
+        console.log("caching app shell");
+        return cache.addAll(STATIC_FILES);
+      })
+      .catch((error) => console.log(error))
   );
 });
 
