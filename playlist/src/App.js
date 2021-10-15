@@ -28,3 +28,7 @@ function App() {
 }
 
 export default App;
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js");
+}
