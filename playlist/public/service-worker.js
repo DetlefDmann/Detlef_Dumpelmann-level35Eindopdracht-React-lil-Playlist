@@ -4,7 +4,7 @@ const VERSION_NR_STATIC = "static-v1";
 const VERSION_NR_DYNAMIC = "dynamic-v1";
 const STATIC_FILES = [
   "./",
-  //"./about",
+  "./about",
   //"./home",
   "./index.html",
   // "../src/App.js",
