@@ -6,8 +6,8 @@ const STATIC_FILES = [
   "./",
   "./index.html",
   "./offline.html",
-  "./home",
-  "./about",
+  //"./home",
+  //"./about",
 ];
 
 //add minimal necessary files to cache
