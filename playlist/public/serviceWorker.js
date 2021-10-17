@@ -6,7 +6,6 @@ const STATIC_FILES = [
   "./",
   "./index.html",
   "./offline.html",
-  "./App.js",
   "./home",
   "./about",
 ];
