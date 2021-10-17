@@ -1,7 +1,7 @@
 //Version number
 
-const VERSION_NR_STATIC = "static-v1";
-const VERSION_NR_DYNAMIC = "dynamic-v1";
+const VERSION_NR_STATIC = "static-v1.1";
+const VERSION_NR_DYNAMIC = "dynamic-v1.1";
 const STATIC_FILES = [
   "./",
   "./index.html",
