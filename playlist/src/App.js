@@ -30,5 +30,5 @@ function App() {
 export default App;
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js");
+  navigator.serviceWorker.register("./serviceWorker.js");
 }
